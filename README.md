@@ -97,6 +97,7 @@ Cucumber-Java-Maven based Automation framework for Mobile App and Website Applic
     git remote add origin https://github.com/harigithub1/AutomationFramework.git
     ````
   - Push the project using `git push -u origin main`.
+  - To push code to feature branch ``git branch featurebranchname``, `git push origin featurebranchname`.
 
 - ### For importing existing project from GitHub and creating feature branch
   - Clone the project:

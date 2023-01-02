@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Test-Suite" parallel="tests" thread-count="10">
+    <test name="BrowserStack Windows Chrome">
+        <!--below cloud property is used for distinguish desired capabilities between cloud and local-->
+        <!--and also to choose between RemoteWebDriver and WebDriver if "OnlineOrMobile" is "Online"-->
+        <parameter name="Cloud" value="true"/>
+        <parameter name="browser" value="Chrome"/>
+        <parameter name="platform" value="Windows"/>
+        <parameter name="platformVersion" value="11"/>
+        <!--user credentials should be provided through testng xml files for parallel run-->
+        <!--since same user cant login in to multiple devices same time-->
+        <parameter name="username" value="abc@gmail.com"/>
+        <parameter name="password" value="password@123"/>
+        <!--below OnlineOrMobile parameter is used to decide whether-->
+        <!--AppiumDriver or RemoteWebDriver should be instantiated-->
+        <parameter name="OnlineOrMobile" value="Online"/>
+        <classes>
+            <class name="cucumber.tests.TestNGParallelRunner1Online"/>
+        </classes>
+    </test>
+    <test name="BrowserStack Windows Chrome2">
+        <!--below cloud property is used for distinguish desired capabilities between cloud and local-->
+        <!--and also to choose between RemoteWebDriver and WebDriver if "OnlineOrMobile" is "Online"-->
+        <parameter name="Cloud" value="true"/>
+        <parameter name="browser" value="Chrome"/>
+        <parameter name="platform" value="Windows"/>
+        <parameter name="platformVersion" value="11"/>
+        <!--user credentials should be provided through testng xml files for parallel run-->
+        <!--since same user cant login in to multiple devices same time-->
+        <parameter name="username" value="abc@gmail.com"/>
+        <parameter name="password" value="password@123"/>
+        <!--below OnlineOrMobile parameter is used to decide whether-->
+        <!--AppiumDriver or RemoteWebDriver should be instantiated-->
+        <parameter name="OnlineOrMobile" value="Online"/>
+        <classes>
+            <class name="cucumber.tests.TestNGParallelRunner2Online"/>
+        </classes>
+    </test>
+</suite>

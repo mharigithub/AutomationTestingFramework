@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Myntra-Android-Test-Suite" parallel="tests" thread-count="5">
+    <test name="Local S20">
+        <!--below cloud property is used for distinguish desired capabilities between cloud and local-->
+        <parameter name="Cloud" value="false"/>
+        <!--udid value(eg:RZ8NA0RM5GK) should be given in deviceName parameter in case of local testing-->
+        <parameter name="deviceName" value="RZ8NA0RM5GK"/>
+        <parameter name="platform" value="android"/>
+        <parameter name="platformVersion" value="12.0"/>
+        <!--user credentials should be provided through testng xml files for parallel run-->
+        <!--since same user cant login in to multiple devices same time-->
+        <parameter name="username" value="abc@gmail.com"/>
+        <parameter name="password" value="password@123"/>
+        <!--below OnlineOrMobile parameter is used to decide whether-->
+        <!--AppiumDriver or RemoteWebDriver should be instantiated-->
+        <parameter name="OnlineOrMobile" value="Mobile"/>
+        <classes>
+            <class name="cucumber.tests.TestNGParallelRunner1Mobile"/>
+        </classes>
+    </test>
+    <test name="Local A71">
+        <!--below cloud property is used for distinguish desired capabilities between cloud and local-->
+        <parameter name="Cloud" value="false"/>
+        <!--udid value(eg:RZ8NA0RM5GK) should be given in deviceName parameter in case of local testing-->
+        <parameter name="deviceName" value="RZ8NC07WQNP"/>
+        <parameter name="platform" value="android"/>
+        <parameter name="platformVersion" value="11.0"/>
+        <!--user credentials should be provided through testng xml files for parallel run-->
+        <!--since same user cant login in to multiple devices same time-->
+        <parameter name="username" value="abc@gmail.com"/>
+        <parameter name="password" value="password@123"/>
+        <!--below OnlineOrMobile parameter is used to decide whether-->
+        <!--AppiumDriver or RemoteWebDriver should be instantiated-->
+        <parameter name="OnlineOrMobile" value="Mobile"/>
+        <classes>
+            <class name="cucumber.tests.TestNGParallelRunner2Mobile"/>
+        </classes>
+    </test>
+</suite>

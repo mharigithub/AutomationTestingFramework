@@ -1,0 +1,18 @@
+node ('jenkins-agent-name'){
+    stage('clone'){
+        git branch: 'branch-name', credentialsId: 'paste-credentials-id-from-jenkins-credentials', url: 'put-ssh-url-here'
+    }
+    stage('compile'){
+        bat '''mvn compile'''
+    }
+    stage('test'){
+        bat '''mvn test'''
+    }
+publishHTML([allowMissing: false,
+alwaysLinkToLastBuild: true,
+keepAll: false,
+reportDir: '',
+reportFiles: 'target/extent-reports/ExtentReport.html',
+reportName: 'Test Report',
+reportTitles: ''])
+}

@@ -1,0 +1,5 @@
+To read testng xml data:
+Reporter.getCurrentTestResult().getTextContext().getCurrentXMLTest().getParameter("username")
+
+Git hub link:
+https://github.com/harigithub1/MobileAutomationFramework

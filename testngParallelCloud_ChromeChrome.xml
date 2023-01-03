@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Test-Suite" parallel="tests" thread-count="10">
-    <test name="BrowserStack Windows Chrome">
+    <test name="BrowserStack Windows Chrome1">
         <!--below cloud property is used for distinguish desired capabilities between cloud and local-->
         <!--and also to choose between RemoteWebDriver and WebDriver if "OnlineOrMobile" is "Online"-->
         <parameter name="Cloud" value="true"/>

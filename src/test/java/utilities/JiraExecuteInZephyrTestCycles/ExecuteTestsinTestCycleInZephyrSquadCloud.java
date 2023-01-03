@@ -20,7 +20,11 @@ public class ExecuteTestsinTestCycleInZephyrSquadCloud {
     String accessKeyZephyr = "zephyr access key";
     String secretKeyZephyr = "zephyr secret key";
     String accIDJira = "account id from jira";
-
+/*
+    zephyr squad api documentation link
+    https://zephyrsquad.docs.apiary.io/#reference/execution/update-executions-in-bulk/update-executions-in-bulk
+    https://support.smartbear.com/zephyr-squad-cloud/docs/api/index.html
+*/
     ZFJCloudRestClient client =
             ZFJCloudRestClient.restBuilder(baseURLZephyr, accessKeyZephyr, secretKeyZephyr, accIDJira)
                     .build();

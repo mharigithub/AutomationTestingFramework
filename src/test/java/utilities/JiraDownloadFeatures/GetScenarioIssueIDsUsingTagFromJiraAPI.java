@@ -8,8 +8,13 @@ import static io.restassured.RestAssured.given;
 
 public class GetScenarioIssueIDsUsingTagFromJiraAPI {
   public static void main(String[] args){
+/*
+    jira api documentation link
+    https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/
+*/
     String gerURIForScenarioIssueIDsBasedOnTagFromJira =
-            "http://eastern.atlassian.net/rest/api/2/search";
+            "http://your-domain.atlassian.net/rest/api/2/search";
+    //your-domain example eastern
     String tag = "login";
     String jqlFilter = "labels="+ tag +"&project=QA";
     Response responseScenarioIssueIDsBasedOnTagsFromJira =

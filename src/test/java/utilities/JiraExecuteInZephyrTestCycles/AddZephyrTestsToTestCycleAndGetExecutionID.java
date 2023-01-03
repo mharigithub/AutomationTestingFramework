@@ -15,6 +15,11 @@ public class AddZephyrTestsToTestCycleAndGetExecutionID {
   public static void main(String[] args) throws URISyntaxException, IllegalStateException {
     // Generating jwt token first
     // only base url should be used to generate the jwt (not the complete url)
+/*
+    zephyr squad api documentation link
+    https://zephyrsquad.docs.apiary.io/#reference/execution/add-tests-to-cycle/add-tests-to-cycle
+    https://support.smartbear.com/zephyr-squad-cloud/docs/api/index.html
+*/
     String baseURLZephyr = "https://prod-api.zephyr4jiracloud.com/connect";
     String accessKeyZephyr = "zephyr access key";
     String secretKeyZephyr = "zephyr secret key";

@@ -9,9 +9,13 @@ public class GetScenarioBDDContentFromJiraAPI {
 
     //get this issue id using GetScenarioIssueIDsFromJiraAPI.java class
     String scenarioIssueIDFsromJira = "5234";
-
+/*
+    jira api documentation link
+    https://developer.atlassian.com/cloud/jira/platform/rest/v2/api-group-issues/#api-rest-api-2-issue-issueidorkey-get
+*/
     String getURIForScenarioJiraDataFromJira =
-            "http://eastern.atlassian.net/rest/api/2/issue/" + scenarioIssueIDFsromJira;
+            "http://your-domain.atlassian.net/rest/api/2/issue/" + scenarioIssueIDFsromJira;
+    //your-domain example eastern
     Response responseScenarioJiraDataFromJira =
             given()
                     .header("Authorization", "authorization token from jira")

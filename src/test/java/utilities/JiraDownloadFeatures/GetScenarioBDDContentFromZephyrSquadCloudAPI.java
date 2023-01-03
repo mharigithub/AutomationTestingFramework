@@ -16,6 +16,11 @@ import static io.restassured.RestAssured.given;
 public class GetScenarioBDDContentFromZephyrSquadCloudAPI {
   public static void main(String[] args) throws URISyntaxException {
     // only base url should be used to generate the jwt (not the complete url)
+/*
+    zephyr squad api documentation link
+    https://support.smartbear.com/zephyr-squad-cloud/docs/api/bdd.html
+    "Get feature/scenario content" section
+*/
     String baseURLZephyr = "https://prod-api.zephyr4jiracloud.com/connect";
     String accessKeyZephyr = "zephyr access key";
     String secretKeyZephyr = "zephyr secret key";

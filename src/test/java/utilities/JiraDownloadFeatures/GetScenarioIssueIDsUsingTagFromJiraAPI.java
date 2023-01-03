@@ -6,6 +6,10 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
+/**
+ * we are using this class to get scenarios from jira for execution,
+ * not to use in execution status update purpose in zephyrsquad
+ */
 public class GetScenarioIssueIDsUsingTagFromJiraAPI {
   public static void main(String[] args){
 /*

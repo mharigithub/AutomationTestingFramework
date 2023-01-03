@@ -58,7 +58,7 @@
                         <version>2.22.2</version>
                         <configuration>
                             <suiteXmlFiles>
-                                <suiteXmlFile>testngParallelCloudChromeChrome.xml</suiteXmlFile>
+                                <suiteXmlFile>testngParallelCloud_ChromeChrome.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>

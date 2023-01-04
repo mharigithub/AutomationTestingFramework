@@ -11,13 +11,13 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class AddZephyrTestsToTestCycleAndGetExecutionID {
+public class Step1CreateTestCycleInZephyrSquadCloudAndGetCycleID {
   public static void main(String[] args) throws URISyntaxException, IllegalStateException {
     // Generating jwt token first
     // only base url should be used to generate the jwt (not the complete url)
 /*
     zephyr squad api documentation link
-    https://zephyrsquad.docs.apiary.io/#reference/execution/add-tests-to-cycle/add-tests-to-cycle
+    https://zephyrsquad.docs.apiary.io/#reference/cycle/creates-new-cycle/creates-new-cycle ,
     https://support.smartbear.com/zephyr-squad-cloud/docs/api/index.html
 */
     String baseURLZephyr = "https://prod-api.zephyr4jiracloud.com/connect";
@@ -27,31 +27,29 @@ public class AddZephyrTestsToTestCycleAndGetExecutionID {
 
     ZFJCloudRestClient client = ZFJCloudRestClient.restBuilder(baseURLZephyr, accessKeyZephyr, secretKeyZephyr, accIDJira).build();
     JwtGenerator jwtGenerator = client.getJwtGenerator();
-    String uriAddTests = baseURLZephyr + "/public/rest/api/1.0/execution";
-    URI uri = new URI(uriAddTests);
+    String uriCreateCycle = baseURLZephyr + "/public/rest/api/1.0/cycle";
+    URI uri = new URI(uriCreateCycle);
     int expirationInSec = 600;
     String jwt = jwtGenerator.generateJWT("POST", uri, expirationInSec);
 
     Map<String, Object> bodyData = new HashMap<>();
-    bodyData.put("projectID", 12725);
-    bodyData.put("issueID", 6546);
-    bodyData.put("cycleID", "cycle id fetched using CreateTestCycleInZephyrSquadCloudAndGetCycleID.java class");
+    bodyData.put("name", "test cycle name");
     bodyData.put("versionID", "-1"); //version id is -1 for adhoc cycle
+    bodyData.put("clearCustomerFieldsFlag", true);
+    bodyData.put("projectID", 12725);
 
-    Response responseAddedTestCycle =
-            given()
-                    .header("zapiAccessKey", accessKeyZephyr)
-                    .header("Authorization", jwt)
-                    .header("Content-Type", "application/json")
-                    .body(bodyData)
-                    .when()
-                    .post(uri)
-                    .then()
-                    .extract()
-                    .response();
+    Response responseCreatedCycle = given().header("zapiAccessKey", accessKeyZephyr)
+            .header("Authorization", jwt)
+            .header("Content-Type", "application/json")
+            .body(bodyData)
+            .when()
+            .post(uri)
+            .then()
+            .extract()
+            .response();
 
     System.out.println("created test cycle in zephyr squad cloud");
-    String executionID = responseAddedTestCycle.jsonPath().getString("execution.id");
-    System.out.println("execution id" + executionID);
+    String cycleID = responseCreatedCycle.jsonPath().getString("id");
+    System.out.println("cycle id"+cycleID);
   }
 }

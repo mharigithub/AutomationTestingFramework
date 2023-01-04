@@ -12,7 +12,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class ExecuteTestsinTestCycleInZephyrSquadCloud {
+public class Step4ExecuteTestsinTestCycleInZephyrSquadCloud {
   public static void main(String[] args) throws URISyntaxException, IllegalStateException {
     // Generating jwt token first
     // only base url should be used to generate the jwt (not the complete url)

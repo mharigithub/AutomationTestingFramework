@@ -4,7 +4,11 @@ import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-public class GetScenarioIssueIDsUsingKeyFromJiraAPI {
+/**
+ * we are using this class to get issue id which is used in updating execution status in zephyrsquad,
+ * not to get scenarios from jira
+ */
+public class Step2GetScenarioIssueIDsUsingKeyFromJiraAPI {
   public static void main(String[] args) {
     String issueKey = "QA-3";
 /*

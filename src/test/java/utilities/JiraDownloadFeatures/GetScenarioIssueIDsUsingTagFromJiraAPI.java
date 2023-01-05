@@ -25,6 +25,7 @@ public class GetScenarioIssueIDsUsingTagFromJiraAPI {
             given()
                     .queryParam("jql", jqlFilter)
                     .queryParam("fields", "id")
+                    .queryParam("maxResults",2000)
                     .header("Authorization","authorization token from jira")
                     .when()
                     .get(gerURIForScenarioIssueIDsBasedOnTagFromJira);

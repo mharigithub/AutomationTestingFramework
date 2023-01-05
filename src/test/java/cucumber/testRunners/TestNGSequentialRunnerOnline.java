@@ -1,4 +1,4 @@
-package cucumber.tests;
+package cucumber.testRunners;
 
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.FeatureWrapper;
@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 
 /**
- * This class uses multithreading to run tests parallel
+ * This class uses multithreading to run testRunners parallel
  */
 @CucumberOptions(
         monochrome = true,

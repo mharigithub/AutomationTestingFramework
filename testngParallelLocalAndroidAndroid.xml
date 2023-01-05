@@ -17,7 +17,7 @@
         <!--AppiumDriver or RemoteWebDriver should be instantiated-->
         <parameter name="OnlineOrMobile" value="Mobile"/>
         <classes>
-            <class name="cucumber.tests.TestNGParallelRunner1Mobile"/>
+            <class name="cucumber.testRunners.TestNGParallelRunner1Mobile"/>
         </classes>
     </test>
     <test name="Local A71">
@@ -35,7 +35,7 @@
         <!--AppiumDriver or RemoteWebDriver should be instantiated-->
         <parameter name="OnlineOrMobile" value="Mobile"/>
         <classes>
-            <class name="cucumber.tests.TestNGParallelRunner2Mobile"/>
+            <class name="cucumber.testRunners.TestNGParallelRunner2Mobile"/>
         </classes>
     </test>
 </suite>

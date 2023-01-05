@@ -17,7 +17,7 @@
         <!--AppiumDriver or RemoteWebDriver should be instantiated-->
         <parameter name="OnlineOrMobile" value="Online"/>
         <classes>
-            <class name="cucumber.tests.TestNGParallelRunner1Online"/>
+            <class name="cucumber.testRunners.TestNGParallelRunner1Online"/>
         </classes>
     </test>
     <test name="BrowserStack Windows Chrome2">
@@ -35,7 +35,7 @@
         <!--AppiumDriver or RemoteWebDriver should be instantiated-->
         <parameter name="OnlineOrMobile" value="Online"/>
         <classes>
-            <class name="cucumber.tests.TestNGParallelRunner2Online"/>
+            <class name="cucumber.testRunners.TestNGParallelRunner2Online"/>
         </classes>
     </test>
     <test name="BrowserStack iPhone 13">
@@ -52,7 +52,7 @@
         <!--AppiumDriver or RemoteWebDriver should be instantiated-->
         <parameter name="OnlineOrMobile" value="Mobile"/>
         <classes>
-            <class name="cucumber.tests.TestNGParallelRunner1Mobile"/>
+            <class name="cucumber.testRunners.TestNGParallelRunner1Mobile"/>
         </classes>
     </test>
     <test name="BrowserStack Google Pixel 6 device 2">
@@ -69,7 +69,7 @@
         <!--AppiumDriver or RemoteWebDriver should be instantiated-->
         <parameter name="OnlineOrMobile" value="Mobile"/>
         <classes>
-            <class name="cucumber.tests.TestNGParallelRunner2Mobile"/>
+            <class name="cucumber.testRunners.TestNGParallelRunner2Mobile"/>
         </classes>
     </test>
 </suite>

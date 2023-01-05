@@ -16,7 +16,7 @@
         <!--AppiumDriver or RemoteWebDriver should be instantiated-->
         <parameter name="OnlineOrMobile" value="Mobile"/>
         <classes>
-            <class name="cucumber.tests.TestNGParallelRunner1Mobile"/>
+            <class name="cucumber.testRunners.TestNGParallelRunner1Mobile"/>
         </classes>
     </test>
     <test name="BrowserStack iPhone 13 Pro">
@@ -33,7 +33,7 @@
         <!--AppiumDriver or RemoteWebDriver should be instantiated-->
         <parameter name="OnlineOrMobile" value="Mobile"/>
         <classes>
-            <class name="cucumber.tests.TestNGParallelRunner2Mobile"/>
+            <class name="cucumber.testRunners.TestNGParallelRunner2Mobile"/>
         </classes>
     </test>
 <!--    <test name="BrowserStack Samsung Galaxy S21">
@@ -44,7 +44,7 @@
         <parameter name="username" value="abc@gmail.com"/>
         <parameter name="password" value="password@123"/>
         <classes>
-            <class name="cucumber.tests.TestNGParallelRunner2Mobile"/>
+            <class name="cucumber.testRunnersunners.TestNGParallelRunner2Mobile"/>
         </classes>
     </test>
     <test name="BrowserStack iPhone 13">
@@ -55,7 +55,7 @@
         <parameter name="username" value="abc@gmail.com"/>
         <parameter name="password" value="password@123"/>
         <classes>
-            <class name="cucumber.tests.TestNGParallelRunner1Mobile"/>
+            <class name="cucumber.testRunnersunners.TestNGParallelRunner1Mobile"/>
         </classes>
     </test>
     <test name="BrowserStack Google Pixel 3 XL">
@@ -66,7 +66,7 @@
         <parameter name="username" value="abc@gmail.com"/>
         <parameter name="password" value="password@123"/>
         <classes>
-            <class name="cucumber.tests.TestNGParallelRunner1Mobile"/>
+            <class name="cucumber.testRunnersunners.TestNGParallelRunner1Mobile"/>
         </classes>
     </test>-->
 </suite>

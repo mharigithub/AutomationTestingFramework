@@ -1,4 +1,4 @@
-package cucumber.tests;
+package cucumber.testRunners;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.junit.Cucumber;

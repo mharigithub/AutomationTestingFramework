@@ -1,4 +1,4 @@
-package cucumber.tests;
+package cucumber.testRunners;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 
 /**
- * This class uses multithreading to run tests parallel
+ * This class uses multithreading to run testRunners parallel
  */
 @CucumberOptions(
         monochrome = true,
@@ -29,7 +29,7 @@ import java.net.URL;
                 "html:target/cucumber-reports/CucumberReport2.html",
                 "json:target/cucumber-reports/cucumber-report2.json"}
 )
-public class TestNGParallelRunner1Mobile {
+public class TestNGParallelRunner2Mobile {
 
   private TestNGCucumberRunner testNGCucumberRunner;
   private final DesiredCapabilitiesUtil desiredCapabilitiesUtil = new DesiredCapabilitiesUtil();

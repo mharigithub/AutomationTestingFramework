@@ -1,12 +1,12 @@
-package cucumber.tests;
+package cucumber.testRunners;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.FeatureWrapper;
 import io.cucumber.testng.PickleWrapper;
 import io.cucumber.testng.TestNGCucumberRunner;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Reporter;
 import org.testng.annotations.*;
 import utilities.ConfigReader;
@@ -16,9 +16,6 @@ import utilities.ThreadLocalDriver;
 import java.io.IOException;
 import java.net.URL;
 
-/**
- * This class uses multithreading to run tests parallel
- */
 @CucumberOptions(
         monochrome = true,
         tags = "@MyntraScenario",
@@ -29,7 +26,7 @@ import java.net.URL;
                 "html:target/cucumber-reports/CucumberReport2.html",
                 "json:target/cucumber-reports/cucumber-report2.json"}
 )
-public class TestNGParallelRunner1Online {
+public class TestNGSequentialRunnerMobile {
 
   private TestNGCucumberRunner testNGCucumberRunner;
   private final DesiredCapabilitiesUtil desiredCapabilitiesUtil = new DesiredCapabilitiesUtil();
@@ -40,19 +37,20 @@ public class TestNGParallelRunner1Online {
   }
 
   @BeforeMethod
-  @Parameters({"platform", "platformVersion", "browser"})
-  public void setup(String platform, String platformVersion, String browser) throws IOException {
+  @Parameters({"deviceName", "platformVersion"})
+  public void setup(String deviceName, String platformVersion) throws IOException {
     ConfigReader configReader = new ConfigReader();
     String browserStackUsername = configReader.config().getProperty("BrowserStackUsername");
     String browserStackAccessKey = configReader.config().getProperty("BrowserStackAccessKey");
     String browserStackServer = configReader.config().getProperty("BrowserStackServer");
-    DesiredCapabilities caps = desiredCapabilitiesUtil.getDesiredCapabilitiesOnline(platform, platformVersion, browser);
+    DesiredCapabilities caps = desiredCapabilitiesUtil.getDesiredCapabilities(deviceName, platformVersion);
     if (Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("Cloud").equalsIgnoreCase("true")) {
-      ThreadLocalDriver.setRemoteWebDriverThreadLocal(new RemoteWebDriver(new URL("http://" + browserStackUsername + ":" + browserStackAccessKey + "@" + browserStackServer + "/wd/hub"), caps));
+      if (Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("platform").equalsIgnoreCase("android"))
+        ThreadLocalDriver.setAppiumDriverThreadLocal(new AndroidDriver<>(new URL("http://" + browserStackUsername + ":" + browserStackAccessKey + "@" + browserStackServer + "/wd/hub"), caps));
+      else
+        ThreadLocalDriver.setAppiumDriverThreadLocal(new IOSDriver<>(new URL("http://" + browserStackUsername + ":" + browserStackAccessKey + "@" + browserStackServer + "/wd/hub"), caps));
     } else {
-      System.setProperty("webdriver.chrome.driver", "C:\\Softwares\\chromedriver_win32\\chromedriver.exe");
-      ThreadLocalDriver.setWebDriverThreadLocal(new ChromeDriver());
-//      ThreadLocalDriver.setTLDriverOnlineLocal(new ChromeDriver(caps));
+      ThreadLocalDriver.setAppiumDriverThreadLocal(new AndroidDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), caps));
     }
   }
 
@@ -74,10 +72,7 @@ public class TestNGParallelRunner1Online {
 
   @AfterMethod
   public synchronized void teardown() {
-    if (Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("OnlineOrMobile").equalsIgnoreCase("Online"))
-      ThreadLocalDriver.getRemoteWebDriverThreadLocal().quit();
-    else
-      ThreadLocalDriver.getWebDriverThreadLocal().quit();
+    ThreadLocalDriver.getAppiumDriverThreadLocal().quit();
   }
 
   @AfterClass(alwaysRun = true)

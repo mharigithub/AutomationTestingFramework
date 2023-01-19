@@ -15,7 +15,7 @@
         <!--AppiumDriver or RemoteWebDriver should be instantiated-->
         <parameter name="OnlineOrMobile" value="Online"/>
         <classes>
-            <class name="cucumber.tests.TestNGSequentialRunnerOnline"/>
+            <class name="cucumber.testRunners.TestNGSequentialRunnerOnline"/>
         </classes>
     </test>
 </suite>
